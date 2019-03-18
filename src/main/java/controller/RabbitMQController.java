@@ -5,26 +5,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import po.Mail;
 import po.TopicMail;
-import service.impl.ProducerImpl;
-import service.impl.PublisherImpl;
+import service.Producer;
+import service.Publisher;
 
 @Controller
 public class RabbitMQController {
 	
 	
 	@Autowired
-	ProducerImpl producer;
+	Producer producer;
 	
 	@Autowired
-	PublisherImpl publisher;
+	Publisher publisher;
 	
 	@RequestMapping(value="/produce",produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public void produce(@ModelAttribute("mail")Mail mail) throws Exception{
-		producer.sendMail("myQueue",mail);
+		producer.sendMail("myQueueOne",mail);
 	}
 	
 	@RequestMapping(value="/topic",produces = {"application/json;charset=UTF-8"})
@@ -48,7 +47,7 @@ public class RabbitMQController {
 	}
 	
 	
-	@RequestMapping("/demo")
+	@RequestMapping("demo")
 	public String demo(){
 		return "demo";
 	}

@@ -15,9 +15,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
 	 	@Bean
 	    public ConnectionFactory connectionFactory() {
-	 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory("127.0.0.1");
-	 		connectionFactory.setUsername("jackie.scl");
-	 		connectionFactory.setPassword("111111");
+	 		CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
+			connectionFactory.setHost("localhost");
+	 		connectionFactory.setUsername("jackie");
+	 		connectionFactory.setPassword("jackie");
 	 		connectionFactory.setPort(5672);
 	 		return connectionFactory;
 	    }
@@ -37,7 +38,7 @@ public class RabbitConfig {
 	    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
 	        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
 	        factory.setConnectionFactory(connectionFactory());
-	        factory.setConcurrentConsumers(2);
+	        factory.setConcurrentConsumers(3);
 	        factory.setMaxConcurrentConsumers(10);
 	        return factory;
 	    }

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -6,10 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spring-rabbitMQ</title>
+    <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
 <div class="container">
@@ -21,21 +26,21 @@
 			<img src="./img/1.png" width="100%" alt="生产者-消费者模型" class="img-rounded">
 						<form id="f1" class="form-horizontal" role="form">
 							<div class="form-group">
-								<label for="mailid1" class="col-sm-2 control-label">mailid</label>
+								<label for="mailId" class="col-sm-2 control-label">mailId</label>
 								<div class="col-sm-10">
-									<input type="text" name="mailId" class="form-control" id="mailid1" placeholder="mailid">
+									<input type="text" name="mailId" class="form-control" id="mailId" placeholder="mailId">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="country1" class="col-sm-2 control-label">country</label>
+								<label for="country" class="col-sm-2 control-label">country</label>
 								<div class="col-sm-10">
-									<input type="text" name="country" class="form-control" id="country1" placeholder="country">
+									<input type="text" name="country" class="form-control" id="country" placeholder="country">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight1" class="col-sm-2 control-label">weight</label>
+								<label for="weight" class="col-sm-2 control-label">weight</label>
 								<div class="col-sm-10">
-									<input type="text" name="weight" class="form-control" id="weight1" placeholder="weight">
+									<input type="text" name="weight" class="form-control" id="weight" placeholder="weight">
 								</div>
 							</div>
 							
@@ -56,21 +61,21 @@
 			<img src="./img/2.png"  width="100%" alt="发布-订阅模型" class="img-rounded">
 						<form id="f2" class="form-horizontal" role="form">
 							<div class="form-group">
-								<label for="mailid2" class="col-sm-2 control-label">mailid</label>
+								<label for="mailId" class="col-sm-2 control-label">mailId</label>
 								<div class="col-sm-10">
-									<input type="text" name="mailId" class="form-control" id="mailid2" placeholder="mailid">
+									<input type="text" name="mailId" class="form-control" id="mailId" placeholder="mailId">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="country2" class="col-sm-2 control-label">country</label>
+								<label for="country" class="col-sm-2 control-label">country</label>
 								<div class="col-sm-10">
-									<input type="text" name="country" class="form-control" id="country2" placeholder="country">
+									<input type="text" name="country" class="form-control" id="country" placeholder="country">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight2" class="col-sm-2 control-label">weight</label>
+								<label for="weight" class="col-sm-2 control-label">weight</label>
 								<div class="col-sm-10">
-									<input type="text" name="weight" class="form-control" id="weight2" placeholder="weight">
+									<input type="text" name="weight" class="form-control" id="weight" placeholder="weight">
 								</div>
 							</div>
 							<div class="form-group">
@@ -93,25 +98,25 @@
 			<img src="./img/3.png" width="100%" alt="发布-订阅模型" class="img-rounded">
 						<form id="f3" class="form-horizontal" role="form">
 							<div class="form-group">
-								<label for="mailid3" class="col-sm-2 control-label">mailid</label>
+								<label for="mailId" class="col-sm-2 control-label">mailId</label>
 								<div class="col-sm-10">
-									<input type="text" name="mailId" class="form-control" id="mailid3" placeholder="mailid">
+									<input type="text" name="mailId" class="form-control" id="mailId" placeholder="mailId">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="country3" class="col-sm-2 control-label">country</label>
+								<label for="country" class="col-sm-2 control-label">country</label>
 								<div class="col-sm-10">
-									<input type="text" name="country" class="form-control" id="country3" placeholder="country">
+									<input type="text" name="country" class="form-control" id="country" placeholder="country">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight3" class="col-sm-2 control-label">weight</label>
+								<label for="weight" class="col-sm-2 control-label">weight</label>
 								<div class="col-sm-10">
-									<input type="text" name="weight" class="form-control" id="weight3" placeholder="weight">
+									<input type="text" name="weight" class="form-control" id="weight" placeholder="weight">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight3" class="col-sm-3 control-label">Routing key</label>
+								<label for="weight" class="col-sm-3 control-label">Routing key</label>
 								<div class="col-sm-9">
 									<select class="form-control" name="routingkey">
 									  <option value="orange">orange</option>
@@ -136,27 +141,27 @@
 			<img src="./img/4.png" width="100%" alt="发布-订阅模型" class="img-rounded">
 						<form id="f4" class="form-horizontal" role="form">
 							<div class="form-group">
-								<label for="mailid4" class="col-sm-2 control-label">mailid</label>
+								<label for="mailId" class="col-sm-2 control-label">mailId</label>
 								<div class="col-sm-10">
-									<input type="text" name="mailId" class="form-control" id="mailid4" placeholder="mailid">
+									<input type="text" name="mailId" class="form-control" id="mailId" placeholder="mailId">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="country4" class="col-sm-2 control-label">country</label>
+								<label for="country" class="col-sm-2 control-label">country</label>
 								<div class="col-sm-10">
-									<input type="text" name="country" class="form-control" id="country4" placeholder="country">
+									<input type="text" name="country" class="form-control" id="country" placeholder="country">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight4" class="col-sm-2 control-label">weight</label>
+								<label for="weight" class="col-sm-2 control-label">weight</label>
 								<div class="col-sm-10">
-									<input type="text" name="weight" class="form-control" id="weight4" placeholder="weight">
+									<input type="text" name="weight" class="form-control" id="weight" placeholder="weight">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="weight5" class="col-sm-3 control-label">Routing key</label>
+								<label for="weight" class="col-sm-3 control-label">Routing key</label>
 								<div class="col-sm-9">
-									<input type="text" name="routingkey" class="form-control" id="weight5" placeholder="routingkey"/>
+									<input type="text" name="routingkey" class="form-control" id="weight" placeholder="routingkey"/>
 								</div>
 							</div>
 							<div class="form-group">
@@ -170,8 +175,10 @@
 	  </div>
   </div>
 </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
 	$(document).ready(function(){
 	  $("#produce").click(function(){

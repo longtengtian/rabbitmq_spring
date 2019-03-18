@@ -11,8 +11,8 @@ public class ProducerConsumerConfig {
 		RabbitConfig rabbitconfig;
 	
 	 	@Bean
-	    public Queue myQueue() {
-	       Queue queue=new Queue("myQueue");
+	    public Queue myQueueOne() {
+	       Queue queue=new Queue("myQueueOne");
 	       return queue;
 	    }
 	    

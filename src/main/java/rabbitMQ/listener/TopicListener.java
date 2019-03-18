@@ -9,13 +9,13 @@ import java.io.IOException;
 
 @Component
 public class TopicListener {
-	@RabbitListener(queues = "topicQueue1")
+	@RabbitListener(queues = "topicQueueOne")
 	public void displayTopic(Mail mail) throws IOException {
-		System.out.println("从topicQueue1取出消息"+mail.toString());
+		System.out.println("从topicQueueOne取出消息"+mail.toString());
 	}
 
-	@RabbitListener(queues = "topicQueue2")
-	public void displayTopic2(Mail mail) throws IOException {
-		System.out.println("从topicQueue2取出消息"+mail.toString());
+	@RabbitListener(queues = "topicQueueTwo")
+	public void displayTopicTwo(Mail mail) throws IOException {
+		System.out.println("从topicQueueTwo取出消息"+mail.toString());
 	}
 }

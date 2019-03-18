@@ -18,31 +18,31 @@ public class DirectExchangeConfig {
 	
 	@Bean
     public Queue directQueueOne() {
-       Queue queue=new Queue("directQueue1");
+       Queue queue=new Queue("directQueueOne");
        return queue;
     }
  	
  	@Bean
     public Queue directQueueTwo() {
-       Queue queue=new Queue("directQueue2");
+       Queue queue=new Queue("directQueueTwo");
        return queue;
     }
 	
  	//3个binding将交换机和相应队列连起来
  	@Bean
- 	public Binding bindingOrange(){
+ 	public Binding bindingorange(){
  		Binding binding=BindingBuilder.bind(directQueueOne()).to(directExchange()).with("orange");
  		return binding;
  	}
  	
  	@Bean
- 	public Binding bindingBlack(){
+ 	public Binding bindingblack(){
  		Binding binding=BindingBuilder.bind(directQueueTwo()).to(directExchange()).with("black");
  		return binding;
  	}
  	
  	@Bean
- 	public Binding bindingGreen(){
+ 	public Binding bindinggreen(){
  		Binding binding=BindingBuilder.bind(directQueueTwo()).to(directExchange()).with("green");
  		return binding;
  	}

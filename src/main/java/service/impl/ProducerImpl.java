@@ -12,7 +12,6 @@ import service.Producer;
 public class ProducerImpl implements Producer{
 	@Autowired
 	RabbitTemplate rabbitTemplate;
-	@Override
 	public void sendMail(String queue,Mail mail) {
 		rabbitTemplate.setQueue(queue);
 		rabbitTemplate.convertAndSend(queue,mail);

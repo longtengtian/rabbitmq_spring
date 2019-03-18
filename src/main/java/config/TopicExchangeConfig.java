@@ -16,32 +16,32 @@ public class TopicExchangeConfig {
  	}
 	
 	@Bean
-    public Queue topicQueueOne() {
-       Queue queue=new Queue("topicQueue1");
+    public Queue topicqueueOne() {
+       Queue queue=new Queue("topicQueueOne");
        return queue;
     }
  	
  	@Bean
     public Queue topicQueueTwo() {
-       Queue queue=new Queue("topicQueue2");
+       Queue queue=new Queue("topicQueueTwo");
        return queue;
     }
 	
  	//3个binding将交换机和相应队列连起来
  	@Bean
- 	public Binding bindingTopicOrange(){
- 		Binding binding=BindingBuilder.bind(topicQueueOne()).to(topicExchange()).with("*.orange.*");//binding key
+ 	public Binding bindingTopic1(){
+ 		Binding binding=BindingBuilder.bind(topicqueueOne()).to(topicExchange()).with("*.orange.*");//binding key
  		return binding;
  	}
  	
  	@Bean
- 	public Binding bindingTopicRabbit(){
+ 	public Binding bindingTopic2(){
  		Binding binding=BindingBuilder.bind(topicQueueTwo()).to(topicExchange()).with("*.*.rabbit");
  		return binding;
  	}
  	
  	@Bean
- 	public Binding bindingTopicLazy(){
+ 	public Binding bindingTopic3(){
  		Binding binding=BindingBuilder.bind(topicQueueTwo()).to(topicExchange()).with("lazy.#");//#表示0个或若干个关键字，*表示一个关键字
  		return binding;
  	}
