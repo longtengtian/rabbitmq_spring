@@ -1,7 +1,7 @@
 package po;
 
 public class TopicMail extends Mail{
-	String routingkey;
+	private String routingkey;
 
 	public String getRoutingkey() {
 		return routingkey;

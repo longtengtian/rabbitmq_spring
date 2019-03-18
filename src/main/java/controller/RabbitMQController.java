@@ -7,50 +7,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import po.Mail;
 import po.TopicMail;
-import service.Producer;
-import service.Publisher;
+import service.ProducerService;
+import service.PublisherService;
 
 @Controller
 public class RabbitMQController {
-	
-	
 	@Autowired
-	Producer producer;
-	
+	private ProducerService producerService;
 	@Autowired
-	Publisher publisher;
-	
-	@RequestMapping(value="/produce",produces = {"application/json;charset=UTF-8"})
+	private PublisherService publisherService;
+
+	@RequestMapping("demo")
+	public String demo() {
+		return "demo";
+	}
+
+	@RequestMapping(value = "/direct")
+	@ResponseBody
+	public void direct(@ModelAttribute("mail") TopicMail mail) {
+		Mail m = new Mail(mail.getMailId(), mail.getCountry(), mail.getWeight());
+		publisherService.sendDirectMail(m, mail.getRoutingkey());
+	}
+
+	@RequestMapping(value = "/produce")
 	@ResponseBody
 	public void produce(@ModelAttribute("mail")Mail mail) throws Exception{
-		producer.sendMail("myQueueOne",mail);
+		producerService.sendMail("myQueue", mail);
 	}
-	
-	@RequestMapping(value="/topic",produces = {"application/json;charset=UTF-8"})
+
+	@RequestMapping(value = "/publish")
 	@ResponseBody
 	public void topic(@ModelAttribute("mail")Mail mail) throws Exception{
-		publisher.publishMail(mail);
+		publisherService.publishMail(mail);
 	}
-	
-	@RequestMapping(value="/direct",produces = {"application/json;charset=UTF-8"})
-	@ResponseBody
-	public void direct(@ModelAttribute("mail")TopicMail mail){
-		Mail m=new Mail(mail.getMailId(),mail.getCountry(),mail.getWeight());
-		publisher.sendDirectMail(m, mail.getRoutingkey());
-	}
-	
-	@RequestMapping(value="/myTopic",produces = {"application/json;charset=UTF-8"})
+
+	@RequestMapping(value = "/topic")
 	@ResponseBody
 	public void topic(@ModelAttribute("mail")TopicMail mail){
 		Mail m=new Mail(mail.getMailId(),mail.getCountry(),mail.getWeight());
-		publisher.sendTopicMail(m, mail.getRoutingkey());
+		publisherService.sendTopicMail(m, mail.getRoutingkey());
 	}
-	
-	
-	@RequestMapping("demo")
-	public String demo(){
-		return "demo";
-	}
-	
-	
+
 }

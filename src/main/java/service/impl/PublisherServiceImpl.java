@@ -4,10 +4,10 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import po.Mail;
-import service.Publisher;
+import service.PublisherService;
 
 @Service("publisher")
-public class PublisherImpl implements Publisher{
+public class PublisherServiceImpl implements PublisherService {
 	@Autowired
 	RabbitTemplate rabbitTemplate;
 

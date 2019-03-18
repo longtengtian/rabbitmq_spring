@@ -15,7 +15,7 @@ public class PublishSubscribeConfig {
 	RabbitConfig rabbitconfig;
 
  	@Bean
-    public Queue myQueueOne1() {
+	public Queue myQueueOne() {
        Queue queue=new Queue("queueOne");
        return queue;
     }
@@ -33,13 +33,13 @@ public class PublishSubscribeConfig {
  	}
  	
  	@Bean
- 	public Binding binding1(){
- 		Binding binding=BindingBuilder.bind(myQueueOne1()).to(fanoutExchange());
+	public Binding bindingOne() {
+		Binding binding = BindingBuilder.bind(myQueueOne()).to(fanoutExchange());
  		return binding;
  	}
  	
  	@Bean
- 	public Binding binding2(){
+	public Binding bindingTwo() {
  		Binding binding=BindingBuilder.bind(myQueueTwo()).to(fanoutExchange());
  		return binding;
  	}

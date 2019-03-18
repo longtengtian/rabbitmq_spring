@@ -9,12 +9,12 @@ import java.io.IOException;
 
 @Component
 public class PublishSubscribeListener {
-	@RabbitListener(queues = "queue1")
+	@RabbitListener(queues = "queueOne")
 	public void subscribe(Mail mail) throws IOException {
 		System.out.println("订阅者1收到消息"+mail.toString());
 	}
 
-	@RabbitListener(queues = "queue2")
+	@RabbitListener(queues = "queueTwo")
 	public void subscribe2(Mail mail) throws IOException {
 		System.out.println("订阅者2收到消息"+mail.toString());
 	}
