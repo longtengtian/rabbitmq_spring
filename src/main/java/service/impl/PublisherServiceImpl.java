@@ -6,24 +6,24 @@ import org.springframework.stereotype.Service;
 import po.Mail;
 import service.PublisherService;
 
-@Service("publisher")
+@Service("publisherService")
 public class PublisherServiceImpl implements PublisherService {
-	@Autowired
-	RabbitTemplate rabbitTemplate;
+  @Autowired
+  RabbitTemplate rabbitTemplate;
 
-	public void publishMail(Mail mail) {
-		rabbitTemplate.convertAndSend("fanout", "", mail);
-	}
+  @Override
+  public void publishMail(Mail mail) {
+    rabbitTemplate.convertAndSend("fanout", "", mail);
+  }
 
-	public void sendDirectMail(Mail mail, String routingkey) {
-		rabbitTemplate.convertAndSend("direct", routingkey, mail);
-	}
+  @Override
+  public void sendDirectMail(Mail mail, String routingkey) {
+    rabbitTemplate.convertAndSend("direct", routingkey, mail);
+  }
 
-	public void sendTopicMail(Mail mail, String routingkey) {
-		rabbitTemplate.convertAndSend("myTopic", routingkey, mail);
-	}
+  @Override
+  public void sendTopicMail(Mail mail, String routingkey) {
+    rabbitTemplate.convertAndSend("myTopic", routingkey, mail);
+  }
 
-
-	
-	
 }

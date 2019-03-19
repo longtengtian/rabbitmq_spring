@@ -1,15 +1,10 @@
 package po;
 
+import lombok.Data;
+
+@Data
 public class TopicMail extends Mail{
 	private String routingkey;
-
-	public String getRoutingkey() {
-		return routingkey;
-	}
-
-	public void setRoutingkey(String routingkey) {
-		this.routingkey = routingkey;
-	}
 
 	@Override
 	public String toString() {
