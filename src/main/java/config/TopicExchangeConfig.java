@@ -6,7 +6,10 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-//topic交换机模型，需要一个topic交换机，两个队列和三个binding
+
+/**
+ * topic交换机模型，需要一个topic交换机，两个队列和三个binding
+ */
 @Configuration
 public class TopicExchangeConfig {
 	@Bean
@@ -16,7 +19,7 @@ public class TopicExchangeConfig {
  	}
 	
 	@Bean
-    public Queue topicqueueOne() {
+  public Queue topicQueueOne() {
        Queue queue=new Queue("topicQueueOne");
        return queue;
     }
@@ -30,7 +33,8 @@ public class TopicExchangeConfig {
  	//3个binding将交换机和相应队列连起来
  	@Bean
  	public Binding bindingTopic1(){
- 		Binding binding=BindingBuilder.bind(topicqueueOne()).to(topicExchange()).with("*.orange.*");//binding key
+    Binding binding = BindingBuilder.bind(topicQueueOne()).to(topicExchange()).with("*.orange.*");// binding
+                                                                                                  // key
  		return binding;
  	}
  	

@@ -9,7 +9,10 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-//连接rabbitMQ的基本配置
+
+/**
+ * 连接rabbitMQ的基本配置
+ */
 @Configuration
 @EnableRabbit
 public class RabbitConfig {
